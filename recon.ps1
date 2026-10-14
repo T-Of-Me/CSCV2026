@@ -25,6 +25,10 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $branch = (git rev-parse --abbrev-ref HEAD).Trim()
+
+# Pull remote work first so push won't be rejected as non-fast-forward
+git pull --no-rebase origin $branch *> $null
+
 git push -u origin $branch *> $null
 
 exit $LASTEXITCODE
