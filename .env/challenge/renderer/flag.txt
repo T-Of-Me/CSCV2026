@@ -1,0 +1,2 @@
+flag{random_flag}
+
